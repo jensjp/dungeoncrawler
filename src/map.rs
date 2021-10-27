@@ -26,8 +26,8 @@ impl Map {
                 if self.in_bounds(Point::new(x, y)) {
                     let idx = map_idx(x, y);
                     match self.tiles[idx] {
-                        TileType::Floor => ctx.set(x, y, YELLOW, BLACK, to_cp437('.')),
-                        TileType::Wall => ctx.set(x, y, GREEN, BLACK, to_cp437('#')),
+                        TileType::Floor => ctx.set(x - camera.left_x, y - camera.top_y, WHITE, BLACK, to_cp437('.')),
+                        TileType::Wall => ctx.set(x - camera.left_x, y - camera.top_y, WHITE, BLACK, to_cp437('#')),
                     }
                 }
             }
